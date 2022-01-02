@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2022 at 01:58 PM
+-- Generation Time: Jan 02, 2022 at 02:35 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- PHP Version: 7.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,8 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`id_dosen`, `nidn`, `nama_dosen`, `jenis_kelamin`, `status`) VALUES
-(1, '123456789', 'Lintar Lias', 'Laki-Laki', 'Aktif');
+(1, '123456789', 'Lintar Lias', 'Laki-Laki', 'Aktif'),
+(2, '123321', 'Danu Putra', 'Laki-Laki', 'Pensiun');
 
 -- --------------------------------------------------------
 
@@ -61,8 +62,19 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`npm`, `nama_mhs`, `prodi`, `wali_dosen`, `foto_mhs`) VALUES
-(19025, 'Jadid Alif Ramadhan', 'Teknik Informatika', 'Beliau', ''),
-(19126, 'Rizky Bayu Dwiputra', 'Sistem Informasi', 'Beliau', '');
+(19027, 'Lucky', 'oasandasgibatewrtfaeyfraesurf', 'Lintar Lias', '950-IMG_9267.JPG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prodi`
+--
+
+CREATE TABLE `prodi` (
+  `id_prodi` int(11) NOT NULL,
+  `nama_prodi` int(11) NOT NULL,
+  `jenjang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -101,10 +113,10 @@ ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`npm`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `prodi`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+ALTER TABLE `prodi`
+  ADD PRIMARY KEY (`id_prodi`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

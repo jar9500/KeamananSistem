@@ -51,7 +51,7 @@
 <!-- Body -->
         <div class="col-10">
             <div class="container-fluid mt-3">
-            <marquee scrollamount="10" direction="right"><h1>Daftar Mahasiswa</h1></marquee>
+                <marquee scrollamount="10" direction="right"><h1>Daftar Mahasiswa</h1></marquee>
                 <div class="dropdown-divider"></div>
                 <div class="car mt-3">
                     <!-- Header -->
@@ -78,7 +78,8 @@
                             <tr>
                                 <td><?=$no++;?></td>
                                 <td><?php echo $mahasiswa['npm'];?></td>
-                                <td>-</td>
+                                <td class="text-center"><img class="thumbnail img-responsive" style="width: 50px"; alt="Gambar" 
+                                src="img/ftmhs/<?php echo $mahasiswa['foto_mhs']; ?>"></td>
                                 <td><?php echo $mahasiswa['nama_mhs'];?></td>
                                 <td><?php echo $mahasiswa['prodi'];?></td>
                                 <td><?php echo $mahasiswa['wali_dosen'];?></td>
@@ -89,7 +90,7 @@
 							</tr>
 							<?php };?>
                         </table>
-                        <a class="btn btn-success my-4" href="identitas_motor_create.php" >Tambah Data</a>
+                        <a class="btn btn-success my-4" href="mahasiswa_create.php" >Tambah Data</a>
                     </div>
                 </div>
             </div>
