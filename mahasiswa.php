@@ -19,7 +19,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<!-- Sidebar -->
-		<div class="col-md-2 d-none d-md-block bg-light sidebar" style="height: 100vh">
+		<div class="col-md-2 d-none d-md-block bg-light sidebar">
 			<div class="sidebar-sticky">
 				<ul class="nav flex-column">
                     <li class="nav-item mt-2 active">
@@ -51,6 +51,8 @@
 <!-- Body -->
         <div class="col-10">
             <div class="container-fluid mt-3">
+            <marquee scrollamount="10" direction="right"><h1>Daftar Mahasiswa</h1></marquee>
+                <div class="dropdown-divider"></div>
                 <div class="car mt-3">
                     <!-- Header -->
                     <div class="card-header bg-light text-dark">
