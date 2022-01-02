@@ -2,15 +2,15 @@
 session_start();
  
 # check apakah ada akses post dari halaman login?, jika tidak kembali kehalaman depan
-if( !isset($_POST['Nama']) ) { header('location:index.php'); exit(); }
+if( !isset($_POST['username']) ) { header('location:index.php'); exit(); }
  
 # set nilai default dari error,
 $error = '';
  
 require ( 'koneksi.php' );
  
-$Nama = trim( $_POST['Nama'] );
-$Password = trim( $_POST['Password'] );
+$username = trim( $_POST['username'] );
+$Password = trim( $_POST['password'] );
  
 if( strlen($Nama) < 2 )
 {
@@ -23,7 +23,7 @@ if( strlen($Nama) < 2 )
 }else{
  
     # Escape String, ubah semua karakter ke bentuk string
-    $Nama = $koneksi->escape_string($Nama);
+    $username = $koneksi->escape_string($username);
     $Password = $koneksi->escape_string($Password);
  
     # hash dengan md5
@@ -31,8 +31,8 @@ if( strlen($Nama) < 2 )
  
     # SQL command untuk memilih data berdasarkan parameter $username dan $password yang
     # di inputkan
-    $sql = "SELECT Nama, Hak_Akses FROM user
-            WHERE Nama='$Nama'
+    $sql = "SELECT username, hak_akses FROM user
+            WHERE username='$username'
             AND Password='$Password' LIMIT 1";
  
     # melakukan perintah
@@ -52,10 +52,10 @@ if( strlen($Nama) < 2 )
         $row =$query->fetch_assoc();
         
         # data nama disimpan di session browser
-        $_SESSION['nama_user'] = $row['Nama'];
-        $_SESSION['akses']     = $row['Hak_Akses'];
+        $_SESSION['nama_user'] = $row['username'];
+        $_SESSION['akses']     = $row['hak_akses'];
  
-        if( $row['Hak_Akses'] == 'Pemilik')
+        if( $row['hak_akses'] == 'admin')
         {
             # data hak Admin di set
             $_SESSION['saya_admin']= 'TRUE';
