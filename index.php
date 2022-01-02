@@ -5,6 +5,7 @@ session_start();
 include "koneksi.php";
 $jumlah_siswa=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM mahasiswa"));
 $jumlah_dosen=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM dosen"));
+$jumlah_prodi=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM prodi"));
 
 ?>
 <html lang="en">
@@ -20,6 +21,7 @@ $jumlah_dosen=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM dosen"));
 <nav class="navbar navbar-dark bg-danger flex-md-nowrap p-2 shadow col-12">
     <div class="container-fluid">
         <a class="navbar-brand h1">
+            <img src="img/Logo_Unsika.png" width="25">
             <span class="navbar-brand mb-0 h1">FASILKOM UNSIKA</span>
         </a>
     </div>
@@ -32,24 +34,28 @@ $jumlah_dosen=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM dosen"));
 				<ul class="nav flex-column">
                     <li class="nav-item mt-2 active">
 						<a class="nav-link" href="index.php">
+                        <img src="img/home.png" width="20" height="20" class="d-inline-block align-top">
 							Dashboard
 						</a>
 					</li>
                     <div class="dropdown-divider"></div>
 					<li class="nav-item mt-2 active">
 						<a class="nav-link" href="mahasiswa.php">
+                        <img src="img/student-with-graduation-cap.png" width="20" height="20" class="d-inline-block align-top">
 							Mahasiswa
 						</a>
 					</li>
 					<div class="dropdown-divider"></div>
 					<li class="nav-item mt-2">
 						<a class="nav-link" href="dosen.php">
+                        <img src="img/lecture.png" width="20" height="20" class="d-inline-block align-top">
 							Dosen
 						</a>
 					</li>
 					<div class="dropdown-divider"></div>
 					<li class="nav-item mt-2">
 						<a class="nav-link" href="prodi.php">
+                        <img src="img/pencil.png" width="20" height="20" class="d-inline-block align-top">
 							Prodi
 						</a>
 					</li>
@@ -92,7 +98,7 @@ $jumlah_dosen=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM dosen"));
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="text-xs text-light text-uppercase mb-1">Jumlah Prodi</div>
-                        <div class="h5 mb-0 font-weight-bold text-light"> (Prodi)</div>
+                        <div class="h5 mb-0 font-weight-bold text-light"><?= $jumlah_prodi?> (Prodi)</div>
                     </div>
                 </div>
                 </a>

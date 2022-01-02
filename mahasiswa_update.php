@@ -76,7 +76,12 @@
                             <label>Prodi</label>
                             <select name="prodi" class="form-control" required>
 								<option selected>--Pilih Prodi--</option>
-                                <option name="nama_prodi">oasandasgibatewrtfaeyfraesurf</option>
+                                <?php
+								include 'koneksi.php';
+								$data=mysqli_query($koneksi,"SELECT * FROM prodi") or die(mysqli_error($koneksi));
+								foreach($data as $prodi) : ?>
+								<option value="<?php echo $prodi['nama_prodi'];?>"><?php echo $prodi['nama_prodi'];?></option>
+								<?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">

@@ -32,7 +32,7 @@ if($foto_mhs != "") {
         }
     } else {     
     //jika file ekstensi tidak jpg dan png maka akan disuruh menginput kembali
-    header('location:mahasiswa_create.php');
+    header('location:mahasiswa_update.php');
     }
 }else {
     // jalankan query UPDATE berdasarkan npm yang produknya kita edit

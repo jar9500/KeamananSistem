@@ -51,8 +51,6 @@
 <!-- Body -->
         <div class="col-10">
             <div class="container-fluid mt-3">
-                <marquee scrollamount="10" direction="right"><h1>Daftar Mahasiswa</h1></marquee>
-                <div class="dropdown-divider"></div>
                 <div class="car mt-3">
                     <!-- Header -->
                     <div class="card-header bg-light text-dark">
@@ -73,12 +71,12 @@
                             <?php
                             include 'koneksi.php';
                             $no = 1;
-                            $data=mysqli_query($koneksi,"SELECT * FROM mahasiswa") or die(mysqli_error($koneksi));
+                            $data=mysqli_query($koneksi,"SELECT * FROM mahasiswa ORDER BY npm ASC") or die(mysqli_error($koneksi));
                             foreach($data as $mahasiswa){?>
                             <tr>
                                 <td><?=$no++;?></td>
                                 <td><?php echo $mahasiswa['npm'];?></td>
-                                <td class="text-center"><img class="thumbnail img-responsive" style="width: 50px"; alt="Gambar" 
+                                <td class="text-center"><img class="thumbnail img-responsive" style="width: 50px "; alt="Gambar" 
                                 src="img/ftmhs/<?php echo $mahasiswa['foto_mhs']; ?>"></td>
                                 <td><?php echo $mahasiswa['nama_mhs'];?></td>
                                 <td><?php echo $mahasiswa['prodi'];?></td>
