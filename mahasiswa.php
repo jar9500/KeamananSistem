@@ -41,7 +41,7 @@
 					</li>
 					<div class="dropdown-divider"></div>
 					<li class="nav-item mt-2">
-						<a class="nav-link" href="">
+						<a class="nav-link" href="prodi.php">
 							Prodi
 						</a>
 					</li>
@@ -84,8 +84,8 @@
                                 <td><?php echo $mahasiswa['prodi'];?></td>
                                 <td><?php echo $mahasiswa['wali_dosen'];?></td>
                                 <td>
-                                    <a href="" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
-                                    <a href="" class="btn btn-warning">Edit</a>
+                                    <a href="mahasiswa_delete.php?npm=<?php echo $mahasiswa['npm']?>" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
+                                    <a href="mahasiswa_update.php?npm=<?php echo $mahasiswa['npm']?>" class="btn btn-warning">Edit</a>
                                 </td>
 							</tr>
 							<?php };?>

@@ -49,7 +49,7 @@ $jumlah_dosen=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM dosen"));
 					</li>
 					<div class="dropdown-divider"></div>
 					<li class="nav-item mt-2">
-						<a class="nav-link" href="">
+						<a class="nav-link" href="prodi.php">
 							Prodi
 						</a>
 					</li>
