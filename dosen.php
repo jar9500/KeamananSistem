@@ -35,13 +35,13 @@
 					</li>
 					<div class="dropdown-divider"></div>
 					<li class="nav-item mt-2">
-						<a class="nav-link" href="">
+						<a class="nav-link" href="dosen.php">
 							Dosen
 						</a>
 					</li>
 					<div class="dropdown-divider"></div>
 					<li class="nav-item mt-2">
-						<a class="nav-link" href="">
+						<a class="nav-link" href="prodi.php">
 							Prodi
 						</a>
 					</li>
@@ -71,23 +71,22 @@
                             </tr>
                             <?php
                             include 'koneksi.php';
-                            $no = 1;
                             $data=mysqli_query($koneksi,"SELECT * FROM dosen") or die(mysqli_error($koneksi));
-                            foreach($data as $mahasiswa){?>
+                            foreach($data as $dosen){?>
                             <tr>
-                                <td><?php echo $mahasiswa['id_dosen'];?></td>
-                                <td><?php echo $mahasiswa['nidn'];?></td>
-                                <td><?php echo $mahasiswa['nama_dosen'];?></td>
-                                <td><?php echo $mahasiswa['jenis_kelamin'];?></td>
-                                <td><?php echo $mahasiswa['status'];?></td>
+                                <td><?php echo $dosen['id_dosen'];?></td>
+                                <td><?php echo $dosen['nidn'];?></td>
+                                <td><?php echo $dosen['nama_dosen'];?></td>
+                                <td><?php echo $dosen['jenis_kelamin'];?></td>
+                                <td><?php echo $dosen['status'];?></td>
                                 <td>
-                                    <a href="" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
-                                    <a href="" class="btn btn-warning">Edit</a>
+                                    <a href="dosen_delete.php?id_dosen=<?php echo $dosen['id_dosen']?>" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
+                                    <a href="dosen_update.php?id_dosen=<?php echo $dosen['id_dosen']?>" class="btn btn-warning">Edit</a>
                                 </td>
 							</tr>
 							<?php };?>
                         </table>
-                        <a class="btn btn-success my-4" href="identitas_motor_create.php" >Tambah Data</a>
+                        <a class="btn btn-success my-4" href="dosen_create.php" >Tambah Data</a>
                     </div>
                 </div>
             </div>

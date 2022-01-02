@@ -81,7 +81,7 @@
                                             <td><?php echo $prodi['jenjang'];?></td>
                                             <td>
                                                 <a href="prodi_delete.php?id_prodi=<?php echo $prodi['id_prodi']?>" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
-                                                <a href="" class="btn btn-warning">Edit</a>
+                                                <a href="prodi_update.php?id_prodi=<?php echo $prodi['id_prodi']?>" class="btn btn-warning">Edit</a>
                                             </td>
                                         </tr>
                                     <?php }
@@ -90,7 +90,7 @@
                                 </table>
                             </div>
                         </div>
-                        <a class="btn btn-success my-4" href="" >Tambah Data</a>
+                        <a class="btn btn-success my-4" href="prodi_create.php" >Tambah Data</a>
                     </div>
                 </div>
             </div>

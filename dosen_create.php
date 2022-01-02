@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Mahasiswa</title>
+    <title>Data Dosen</title>
     <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -54,41 +54,38 @@
 				<h1>Input Data</h1>
 				<div class="card mt-3">
 					<div class="card-header bg-secondary text-white">
-						Form Tambah Data Mahasiswa
+						Form Tambah Data Dosen
 					</div>
 					<div class="card-body">
-					<form method="post" action="mahasiswa_createproses.php" enctype="multipart/form-data">
+					<form method="post" action="dosen_createproses.php" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label>NPM</label>
-                            <input type="text" name="npm" class="form-control" required>
+                            <label>ID Dosen</label>
+                            <input type="text" name="id_dosen" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Nama Mahasiswa</label>
-                            <input type="text" name="nama_mhs" class="form-control" required>
+                            <label>NIDN</label>
+                            <input type="text" name="nidn" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Prodi</label>
-                            <select name="prodi" class="form-control" required>
-								<option selected>--Pilih Prodi--</option>
-                                <option name="nama_prodi">oasandasgibatewrtfaeyfraesurf</option>
+                            <label>Nama Dosen</label>
+                            <input type="text" name="nama_dosen" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Jenis Kelamin</label>
+							<select name="jenis_kelamin" class="form-control" required>
+								<option selected>--Pilih Jenis Kelamin--</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                                <option value="Lainnya">Lainnya</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Dosen</label>
-							<select name="wali_dosen" class="form-control" required>
-								<option selected>--Pilih Dosen--</option>
-                                <!-- masukkan nama dosen ke combo box dosen -->
-							<?php
-								include 'koneksi.php';
-								$data=mysqli_query($koneksi,"SELECT * FROM dosen") or die(mysqli_error($koneksi));
-								foreach($data as $dosen) : ?>
-								<option value="<?php echo $dosen['nama_dosen'];?>"><?php echo $dosen['nama_dosen'];?></option>
-								<?php endforeach; ?>
-							</select>
-                        </div>
-						<div class="form-group">
-                            <label>Foto Mahasiswa</label>
-                            <input type="file" name="foto_mhs" class="form-control" required>
+                            <label>Status</label>
+							<select name="status" class="form-control" required>
+								<option selected>--Pilih Status--</option>
+                                <option value="Aktif">Aktif</option>
+                                <option value="Nonaktif">Nonaktif</option>
+                            </select>
                         </div>
 						<button type="submit" class="btn btn-success mt-3" name="simpan">Simpan</button>
 					</div>

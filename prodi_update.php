@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Mahasiswa</title>
+    <title>Data Program Studi</title>
     <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -54,41 +54,27 @@
 				<h1>Input Data</h1>
 				<div class="card mt-3">
 					<div class="card-header bg-secondary text-white">
-						Form Tambah Data Mahasiswa
+						Form Update Program Studi
 					</div>
+                    <?php
+                        include 'koneksi.php';
+                        $id_prodi=$_GET['id_prodi'];
+                        $data=mysqli_query($koneksi,"SELECT * from prodi where id_prodi='$id_prodi' ") or die(mysqli_error($koneksi));
+                        $prodi=mysqli_fetch_array($data);
+                    ?>
 					<div class="card-body">
-					<form method="post" action="mahasiswa_createproses.php" enctype="multipart/form-data">
+					<form method="post" action="prodi_updateproses.php?id_prodi=<?php echo $id_prodi?>" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label>NPM</label>
-                            <input type="text" name="npm" class="form-control" required>
+                            <label>ID Prodi</label>
+                            <input type="text" name="id_prodi" class="form-control" value="<?php echo $prodi['id_prodi']?>" required>
                         </div>
                         <div class="form-group">
-                            <label>Nama Mahasiswa</label>
-                            <input type="text" name="nama_mhs" class="form-control" required>
+                            <label>Nama Prodi</label>
+                            <input type="text" name="nama_prodi" class="form-control" value="<?php echo $prodi['nama_prodi']?>"required>
                         </div>
                         <div class="form-group">
-                            <label>Prodi</label>
-                            <select name="prodi" class="form-control" required>
-								<option selected>--Pilih Prodi--</option>
-                                <option name="nama_prodi">oasandasgibatewrtfaeyfraesurf</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Dosen</label>
-							<select name="wali_dosen" class="form-control" required>
-								<option selected>--Pilih Dosen--</option>
-                                <!-- masukkan nama dosen ke combo box dosen -->
-							<?php
-								include 'koneksi.php';
-								$data=mysqli_query($koneksi,"SELECT * FROM dosen") or die(mysqli_error($koneksi));
-								foreach($data as $dosen) : ?>
-								<option value="<?php echo $dosen['nama_dosen'];?>"><?php echo $dosen['nama_dosen'];?></option>
-								<?php endforeach; ?>
-							</select>
-                        </div>
-						<div class="form-group">
-                            <label>Foto Mahasiswa</label>
-                            <input type="file" name="foto_mhs" class="form-control" required>
+                            <label>Jenjang</label>
+                            <input type="text" name="jenjang" class="form-control" value="<?php echo $prodi['jenjang']?>"required>
                         </div>
 						<button type="submit" class="btn btn-success mt-3" name="simpan">Simpan</button>
 					</div>
