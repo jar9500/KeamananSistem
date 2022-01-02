@@ -12,6 +12,7 @@
 <nav class="navbar navbar-dark bg-danger flex-md-nowrap p-2 shadow col-12">
     <div class="container-fluid">
         <a class="navbar-brand h1">
+            <img src="img/Logo_Unsika.png" width="25">
             <span class="navbar-brand mb-0 h1">FASILKOM UNSIKA</span>
         </a>
     </div>
@@ -24,24 +25,28 @@
 				<ul class="nav flex-column">
                     <li class="nav-item mt-2 active">
 						<a class="nav-link" href="index.php">
+                        <img src="img/home.png" width="20" height="20" class="d-inline-block align-top">
 							Dashboard
 						</a>
 					</li>
                     <div class="dropdown-divider"></div>
 					<li class="nav-item mt-2 active">
 						<a class="nav-link" href="mahasiswa.php">
+                        <img src="img/student-with-graduation-cap.png" width="20" height="20" class="d-inline-block align-top">
 							Mahasiswa
 						</a>
 					</li>
 					<div class="dropdown-divider"></div>
 					<li class="nav-item mt-2">
 						<a class="nav-link" href="dosen.php">
+                        <img src="img/lecture.png" width="20" height="20" class="d-inline-block align-top">
 							Dosen
 						</a>
 					</li>
 					<div class="dropdown-divider"></div>
 					<li class="nav-item mt-2">
 						<a class="nav-link" href="prodi.php">
+                        <img src="img/pencil.png" width="20" height="20" class="d-inline-block align-top">
 							Prodi
 						</a>
 					</li>
