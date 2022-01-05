@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 	
 session_start();
@@ -14,6 +13,7 @@ $jumlah_dosen=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM dosen"));
 $jumlah_prodi=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM prodi"));
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
