@@ -63,6 +63,13 @@ if( !isset($_SESSION['username']) )
 							Prodi
 						</a>
 					</li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item mt-2">
+						<a class="nav-link" href="logout.php">
+                        <img src="img/logout.png" width="20" height="20" class="d-inline-block align-top">
+							Logout
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
