@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+	
+session_start();
+include "koneksi.php";
+
+if( !isset($_SESSION['username']) )
+{
+    header('location:login.php');
+    exit();
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,10 +22,11 @@
 <!-- navbar -->
 <nav class="navbar navbar-dark bg-danger flex-md-nowrap p-2 shadow col-12">
     <div class="container-fluid">
-        <a class="navbar-brand h1">
-            <img src="img/Logo_Unsika.png" width="25">
-            <span class="navbar-brand mb-0 h1">FASILKOM UNSIKA</span>
-        </a>
+        <div class="d-flex flex-row">
+            <div class="p-2"><img src="img/Logo_Unsika.png" width="25"></div>
+            <div class="p-2"><span class="navbar-brand">FASILKOM UNSIKA</span></div>
+        </div>
+        <span class="navbar-brand mb-0 float-right">Selamat Datang, <?php echo $_SESSION["username"] ?></span>
     </div>
 </nav>
 <div class="container-fluid">
@@ -84,7 +96,7 @@
                         <div class="form-group">
                             <label>Jenis Kelamin</label>
 							<select name="jenis_kelamin" class="form-control" required>
-								<option selected>--Pilih Jenis Kelamin--</option>
+								<option selected value="<?php echo $dosen['jenis_kelamin']?>"><?php echo $dosen['jenis_kelamin']?></option>
                                 <option value="Laki-laki">Laki-laki</option>
                                 <option value="Perempuan">Perempuan</option>
                                 <option value="Lainnya">Lainnya</option>
@@ -93,7 +105,7 @@
                         <div class="form-group">
                             <label>Status</label>
 							<select name="status" class="form-control" required>
-								<option selected>--Pilih Status--</option>
+								<option selected value="<?php echo $dosen['status']?>"><?php echo $dosen['status']?></option>
                                 <option value="Aktif">Aktif</option>
                                 <option value="Nonaktif">Nonaktif</option>
                             </select>

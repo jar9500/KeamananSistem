@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2022 at 06:13 PM
+-- Generation Time: Jan 05, 2022 at 03:52 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.26
 
@@ -104,9 +104,9 @@ INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `jenjang`) VALUES
 
 CREATE TABLE `user` (
   `id_user` int(12) NOT NULL,
-  `hak_akses` varchar(255) NOT NULL,
+  `hak_akses` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -114,7 +114,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `hak_akses`, `username`, `password`) VALUES
-(1, 'admin', 'admin', 'admin');
+(1, 'admin', 'admin', '7dd66913004434da295aefa937f55c8e'),
+(2, 'user', 'mahasiswa', '5787be38ee03a9ae5360f54d9026465f');
 
 --
 -- Indexes for dumped tables
@@ -137,6 +138,12 @@ ALTER TABLE `mahasiswa`
 --
 ALTER TABLE `prodi`
   ADD PRIMARY KEY (`id_prodi`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

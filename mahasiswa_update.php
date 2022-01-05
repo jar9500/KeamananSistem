@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+	
+session_start();
+include "koneksi.php";
+
+if( !isset($_SESSION['username']) )
+{
+    header('location:login.php');
+    exit();
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,10 +22,11 @@
 <!-- navbar -->
 <nav class="navbar navbar-dark bg-danger flex-md-nowrap p-2 shadow col-12">
     <div class="container-fluid">
-        <a class="navbar-brand h1">
-            <img src="img/Logo_Unsika.png" width="25">
-            <span class="navbar-brand mb-0 h1">FASILKOM UNSIKA</span>
-        </a>
+        <div class="d-flex flex-row">
+            <div class="p-2"><img src="img/Logo_Unsika.png" width="25"></div>
+            <div class="p-2"><span class="navbar-brand">FASILKOM UNSIKA</span></div>
+        </div>
+        <span class="navbar-brand mb-0 float-right">Selamat Datang, <?php echo $_SESSION["username"] ?></span>
     </div>
 </nav>
 <div class="container-fluid">
@@ -80,7 +92,7 @@
                         <div class="form-group">
                             <label>Prodi</label>
                             <select name="prodi" class="form-control" required>
-								<option selected>--Pilih Prodi--</option>
+								<option selected value="<?php echo $mahasiswa['prodi'];?>"><?php echo $mahasiswa['prodi'];?></option>
                                 <?php
 								include 'koneksi.php';
 								$data=mysqli_query($koneksi,"SELECT * FROM prodi") or die(mysqli_error($koneksi));
@@ -92,7 +104,7 @@
                         <div class="form-group">
                             <label>Dosen</label>
 							<select name="wali_dosen" class="form-control" required>
-								<option selected>--Pilih Dosen--</option>
+								<option selected value="<?php echo $mahasiswa['wali_dosen'];?>"><?php echo $mahasiswa['wali_dosen'];?></option>
                                 <!-- masukkan nama dosen ke combo box dosen -->
 							<?php
 								include 'koneksi.php';

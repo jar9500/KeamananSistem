@@ -3,6 +3,12 @@
 	
 session_start();
 include "koneksi.php";
+
+if( !isset($_SESSION['username']) )
+{
+    header('location:login.php');
+    exit();
+}
 $jumlah_siswa=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM mahasiswa"));
 $jumlah_dosen=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM dosen"));
 $jumlah_prodi=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM prodi"));
@@ -20,10 +26,11 @@ $jumlah_prodi=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM prodi"));
 <!-- navbar -->
 <nav class="navbar navbar-dark bg-danger flex-md-nowrap p-2 shadow col-12">
     <div class="container-fluid">
-        <a class="navbar-brand h1">
-            <img src="img/Logo_Unsika.png" width="25">
-            <span class="navbar-brand mb-0 h1">FASILKOM UNSIKA</span>
-        </a>
+        <div class="d-flex flex-row">
+            <div class="p-2"><img src="img/Logo_Unsika.png" width="25"></div>
+            <div class="p-2"><span class="navbar-brand">FASILKOM UNSIKA</span></div>
+        </div>
+        <span class="navbar-brand mb-0 float-right">Selamat Datang, <?php echo $_SESSION["username"] ?></span>
     </div>
 </nav>
 <div class="container-fluid">
@@ -57,6 +64,13 @@ $jumlah_prodi=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM prodi"));
 						<a class="nav-link" href="prodi.php">
                         <img src="img/pencil.png" width="20" height="20" class="d-inline-block align-top">
 							Prodi
+						</a>
+					</li>
+					<div class="dropdown-divider"></div>
+					<li class="nav-item mt-2">
+						<a class="nav-link" href="logout.php">
+                        <img src="img/logout.png" width="20" height="20" class="d-inline-block align-top">
+							Logout
 						</a>
 					</li>
 				</ul>
