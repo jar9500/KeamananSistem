@@ -76,12 +76,17 @@ if( !isset($_SESSION['username']) )
 <!-- Body -->
         <div class="col-10">
             <div class="container-fluid mt-3">
-            <marquee scrollamount="10" direction="right"><h1>Daftar Mahasiswa</h1></marquee>
+            <h1 class="text-center">Daftar Mahasiswa</h1>
                 <div class="dropdown-divider"></div>
                 <div class="car mt-3">
                     <!-- Header -->
-                    <div class="card-header bg-light text-dark">
-                        <h5 class="text-center">Data Mahasiswa</h5>
+                    <div class="card-header bg-light text-dark d-flex justify-content-between">
+                        <h5>Data Mahasiswa</h5>
+                        <form action="mahasiswa.php" method="get">
+                            <label>Cari :</label>
+                            <input type="text" name="search">
+                            <input type="submit" value="search">
+                        </form>
                     </div>
                     <!-- table -->
                     <div class="card-body">
@@ -95,11 +100,18 @@ if( !isset($_SESSION['username']) )
                                 <th class="text-center">Wali Dosen</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
-                            <?php
+                            <?php 
                             include 'koneksi.php';
+                            if(isset($_GET['search'])){
+                                $search = $_GET['search'];
+                                $data = mysqli_query($koneksi,"SELECT * FROM mahasiswa where nama_mhs like '%".$search."%'
+                                OR npm like '%".$search."%' OR prodi like '%".$search."%' OR wali_dosen like '%".$search."%'") or die(mysqli_error($koneksi));				
+                            }else{
+                                $data = mysqli_query($koneksi,"SELECT * FROM mahasiswa ORDER BY npm ASC") or die(mysqli_error($koneksi));		
+                            }
                             $no = 1;
-                            $data=mysqli_query($koneksi,"SELECT * FROM mahasiswa ORDER BY npm ASC") or die(mysqli_error($koneksi));
-                            foreach($data as $mahasiswa){?>
+                            while($mahasiswa = mysqli_fetch_array($data)){
+                            ?>
                             <tr>
                                 <td><?=$no++;?></td>
                                 <td><?php echo $mahasiswa['npm'];?></td>

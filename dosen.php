@@ -75,12 +75,17 @@ if( !isset($_SESSION['username']) )
 <!-- Body -->
         <div class="col-10">
             <div class="container-fluid mt-3">
-                <marquee scrollamount="10" direction="right"><h1>Daftar Wali Dosen</h1></marquee>
+                <h1 class="text-center">Daftar Wali Dosen</h1>
                 <div class="dropdown-divider"></div>
                 <div class="car mt-3">
-                    <!-- Header -->
-                    <div class="card-header bg-light text-dark">
-                        <h5 class="text-center">Data Dosen</h5>
+                    <!-- Header --> 
+                    <div class="card-header bg-light text-dark d-flex justify-content-between">
+                        <h5>Data Dosen</h5>
+                        <form action="dosen.php" method="get">
+                            <label>Cari :</label>
+                            <input type="text" name="search">
+                            <input type="submit" value="search">
+                        </form>
                     </div>
                     <!-- table -->
                     <div class="card-body">
@@ -93,12 +98,20 @@ if( !isset($_SESSION['username']) )
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
-                            <?php
+                            <?php 
                             include 'koneksi.php';
-                            $data=mysqli_query($koneksi,"SELECT * FROM dosen") or die(mysqli_error($koneksi));
-                            foreach($data as $dosen){?>
+                            if(isset($_GET['search'])){
+                                $search = $_GET['search'];
+                                $data = mysqli_query($koneksi,"SELECT * FROM dosen where nama_dosen like '%".$search."%'
+                                OR nidn like '%".$search."%' OR jenis_kelamin like '%".$search."%' OR status like '%".$search."%'") or die(mysqli_error($koneksi));				
+                            }else{
+                                $data = mysqli_query($koneksi,"SELECT * FROM dosen ORDER BY nidn ASC") or die(mysqli_error($koneksi));		
+                            }
+                            $no = 1;
+                            while($dosen = mysqli_fetch_array($data)){
+                            ?>
                             <tr>
-                                <td><?php echo $dosen['id_dosen'];?></td>
+                                <td><?=$no++;?></td>
                                 <td><?php echo $dosen['nidn'];?></td>
                                 <td><?php echo $dosen['nama_dosen'];?></td>
                                 <td><?php echo $dosen['jenis_kelamin'];?></td>

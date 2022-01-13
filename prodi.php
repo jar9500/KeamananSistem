@@ -76,45 +76,53 @@ if( !isset($_SESSION['username']) )
     <!-- body -->
     <div class="col-10">
             <div class="container-fluid mt-3">
-                <marquee scrollamount="10" direction="right"><h1>Daftar Program Studi</h1></marquee>
+                <h1 class="text-center">Daftar Program Studi</h1>
                 <div class="dropdown-divider"></div>
                 <div class="car mt-3">
                     <!-- Header -->
-                    <div class="card-header bg-light text-dark">
-                        <h5 class="text-center">Data Program Studi</h5>
+                    <div class="card-header bg-light text-dark d-flex justify-content-between">
+                        <h5>Data Program Studi</h5>
+                        <form action="prodi.php" method="get">
+                            <label>Cari :</label>
+                            <input type="text" name="search">
+                            <input type="submit" value="search">
+                        </form>
                     </div>
                     <!-- table -->
-                    <div class="container">
-	                    <div class="mt-4">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Prodi</th>
-                                            <th>Nama Prodi</th>
-                                            <th>Jenjang</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                        include 'koneksi.php';
-                                        $data=mysqli_query($koneksi,"SELECT * FROM prodi") or die(mysqli_error($koneksi));
-                                        foreach($data as $prodi){?>
-                                        <tr>
-                                            <td><?php echo $prodi['id_prodi'];?></td>
-                                            <td><?php echo $prodi['nama_prodi'];?></td>
-                                            <td><?php echo $prodi['jenjang'];?></td>
-                                            <td>
-                                                <a href="prodi_delete.php?id_prodi=<?php echo $prodi['id_prodi']?>" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
-                                                <a href="prodi_update.php?id_prodi=<?php echo $prodi['id_prodi']?>" class="btn btn-warning">Edit</a>
-                                            </td>
-                                        </tr>
-                                    <?php }
-                                    ?>    
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <div class="card-body">
+                        <table class="table table table-bordered table-striped">
+                            <tr>
+                                <th>No.</th>
+                                <th>ID Prodi</th>
+                                <th>Nama Prodi</th>
+                                <th>Jenjang</th>
+                                <th>Aksi</th>
+                            </tr>
+                            <?php 
+                            include 'koneksi.php';
+                            if(isset($_GET['search'])){
+                                $search = $_GET['search'];
+                                $data = mysqli_query($koneksi,"SELECT * FROM prodi where nama_prodi like '%".$search."%'
+                                OR id_prodi like '%".$search."%' OR jenjang like '%".$search."%'") or die(mysqli_error($koneksi));				
+                            }else{
+                                $data = mysqli_query($koneksi,"SELECT * FROM prodi ORDER BY id_prodi ASC") or die(mysqli_error($koneksi));		
+                            }
+                            $no = 1;
+                            while($prodi = mysqli_fetch_array($data)){
+                            ?>
+                            <tr>
+                                <td><?= $no++;?></td>
+                                <td><?php echo $prodi['id_prodi'];?></td>
+                                <td><?php echo $prodi['nama_prodi'];?></td>
+                                <td><?php echo $prodi['jenjang'];?></td>
+                                <td>
+                                    <a href="prodi_delete.php?id_prodi=<?php echo $prodi['id_prodi']?>" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
+                                    <a href="prodi_update.php?id_prodi=<?php echo $prodi['id_prodi']?>" class="btn btn-warning">Edit</a>
+                                </td>
+                            </tr>
+                                <?php }
+                                ?>
+                        </table>
                         <a class="btn btn-success my-4" href="prodi_create.php" >Tambah Data</a>
                     </div>
                 </div>

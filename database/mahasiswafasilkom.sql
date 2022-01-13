@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2022 at 03:52 PM
+-- Generation Time: Jan 13, 2022 at 03:36 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.26
 
@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `dosen` (
-  `id_dosen` int(11) NOT NULL,
   `nidn` varchar(15) NOT NULL,
   `nama_dosen` varchar(255) NOT NULL,
   `jenis_kelamin` varchar(255) NOT NULL,
@@ -39,10 +38,10 @@ CREATE TABLE `dosen` (
 -- Dumping data for table `dosen`
 --
 
-INSERT INTO `dosen` (`id_dosen`, `nidn`, `nama_dosen`, `jenis_kelamin`, `status`) VALUES
-(1, '55500123', 'Purwantoro, M.Kom.', 'Laki-laki', 'Aktif'),
-(2, '55500248', 'Azhari Ali Ridha, S.Kom., MMSI.', 'Laki-laki', 'Aktif'),
-(3, '55500345', 'Betha Nurina Sari, M.Kom.', 'Perempuan', 'Aktif');
+INSERT INTO `dosen` (`nidn`, `nama_dosen`, `jenis_kelamin`, `status`) VALUES
+('55500123', 'Purwantoro, M.Kom.', 'Laki-laki', 'Aktif'),
+('55500248', 'Azhari Ali Ridha, S.Kom., MMSI.', 'Laki-laki', 'Aktif'),
+('55500345', 'Betha Nurina Sari, M.Kom.', 'Perempuan', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -94,7 +93,8 @@ CREATE TABLE `prodi` (
 
 INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `jenjang`) VALUES
 (10001, 'Teknik Informatika', 'S1'),
-(10002, 'Sistem Informasi', 'S1');
+(10002, 'Sistem Informasi', 'S1'),
+(10003, 'Pendidikan Teknologi Info', 'D3');
 
 -- --------------------------------------------------------
 
@@ -125,7 +125,7 @@ INSERT INTO `user` (`id_user`, `hak_akses`, `username`, `password`) VALUES
 -- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
-  ADD PRIMARY KEY (`id_dosen`);
+  ADD PRIMARY KEY (`nidn`);
 
 --
 -- Indexes for table `mahasiswa`
