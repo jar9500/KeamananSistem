@@ -1,7 +1,7 @@
 # Keamanan Sistem
 
 <h2>PROJEK UAS</h2>
-Link Hosting : http://unsikafasilkom.000webhostapp.com/login.php
+Link Hosting : http://unsikafasilkom.000webhostapp.com/
 <h2>MATA KULIAH KEAMANAN SISTEM</h2>
 
 Projek ini adalah salah satu syarat untuk menyelesaikan mata kuliah Keamanan Sistem
