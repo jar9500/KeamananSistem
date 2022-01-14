@@ -31,10 +31,6 @@ Best Regard's, from us.
 
 Bpk. Purwantoro, M.Kom.
 
-## Login Sistem
-Username : admin <br>
-Password : adminjuga
-
 ## User Interface
 
 User Interface Login

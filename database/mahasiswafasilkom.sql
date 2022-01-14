@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 03:36 PM
+-- Generation Time: Jan 14, 2022 at 07:47 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.26
 
@@ -114,8 +114,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `hak_akses`, `username`, `password`) VALUES
-(1, 'admin', 'admin', '7dd66913004434da295aefa937f55c8e'),
-(2, 'user', 'mahasiswa', '5787be38ee03a9ae5360f54d9026465f');
+(1, 'admin', 'admin', 'c2e0098e9197c4237e4e00d248bdbe98'),
+(2, 'user', 'mahasiswa', 'f735503940f639aee72c1322606032f0');
 
 --
 -- Indexes for dumped tables
