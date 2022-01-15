@@ -117,8 +117,8 @@ if( !isset($_SESSION['username']) )
                                 <td><?php echo $dosen['jenis_kelamin'];?></td>
                                 <td><?php echo $dosen['status'];?></td>
                                 <td>
-                                    <a href="dosen_delete.php?id_dosen=<?php echo $dosen['id_dosen']?>" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
-                                    <a href="dosen_update.php?id_dosen=<?php echo $dosen['id_dosen']?>" class="btn btn-warning">Edit</a>
+                                    <a href="dosen_delete.php?nidn=<?php echo $dosen['nidn']?>" class="btn btn-danger" onclick="return confirm('Anda akan menghapus data ini ?')">Hapus</a> 
+                                    <a href="dosen_update.php?nidn=<?php echo $dosen['nidn']?>" class="btn btn-warning">Edit</a>
                                 </td>
 							</tr>
 							<?php };?>

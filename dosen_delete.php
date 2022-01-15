@@ -2,9 +2,9 @@
 
 include 'koneksi.php';
 
-    $id_dosen=$_GET['id_dosen'];
+    $nidn=$_GET['nidn'];
 
-    $query=mysqli_query($koneksi,"DELETE from dosen where id_dosen='$id_dosen' ")
+    $query=mysqli_query($koneksi,"DELETE from dosen where nidn='$nidn' ")
     or die(mysqli_error($koneksi));
 
     if($query){
