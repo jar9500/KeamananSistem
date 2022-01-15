@@ -82,16 +82,12 @@ if( !isset($_SESSION['username']) )
 					</div>
                     <?php
                         include 'koneksi.php';
-                        $id_dosen=$_GET['id_dosen'];
-                        $data=mysqli_query($koneksi,"SELECT * from dosen where id_dosen='$id_dosen' ") or die(mysqli_error($koneksi));
+                        $nidn=$_GET['nidn'];
+                        $data=mysqli_query($koneksi,"SELECT * from dosen where nidn='$nidn' ") or die(mysqli_error($koneksi));
                         $dosen=mysqli_fetch_array($data);
                     ?>
 					<div class="card-body">
-					<form method="post" action="dosen_updateproses.php?id_dosen=<?php echo $id_dosen?>" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>ID Dosen</label>
-                            <input type="text" name="id_dosen" class="form-control" value="<?php echo $dosen['id_dosen']?>" required>
-                        </div>
+					<form method="post" action="dosen_updateproses.php?nidn=<?php echo $nidn?>" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>NIDN</label>
                             <input type="text" name="nidn" class="form-control" value="<?php echo $dosen['nidn']?>" required>

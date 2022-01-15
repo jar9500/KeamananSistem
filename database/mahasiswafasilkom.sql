@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2022 at 07:47 PM
+-- Generation Time: Jan 15, 2022 at 10:13 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.26
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `dosen` (
   `nidn` varchar(15) NOT NULL,
-  `nama_dosen` varchar(255) NOT NULL,
-  `jenis_kelamin` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `nama_dosen` varchar(35) NOT NULL,
+  `jenis_kelamin` varchar(35) NOT NULL,
+  `status` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -51,9 +51,9 @@ INSERT INTO `dosen` (`nidn`, `nama_dosen`, `jenis_kelamin`, `status`) VALUES
 
 CREATE TABLE `mahasiswa` (
   `npm` int(11) NOT NULL,
-  `nama_mhs` varchar(255) NOT NULL,
-  `prodi` varchar(255) NOT NULL,
-  `wali_dosen` varchar(255) NOT NULL,
+  `nama_mhs` varchar(35) NOT NULL,
+  `prodi` varchar(25) NOT NULL,
+  `wali_dosen` varchar(35) NOT NULL,
   `foto_mhs` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -93,8 +93,7 @@ CREATE TABLE `prodi` (
 
 INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `jenjang`) VALUES
 (10001, 'Teknik Informatika', 'S1'),
-(10002, 'Sistem Informasi', 'S1'),
-(10003, 'Pendidikan Teknologi Info', 'D3');
+(10002, 'Sistem Informasi', 'S1');
 
 -- --------------------------------------------------------
 

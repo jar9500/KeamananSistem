@@ -84,10 +84,6 @@ if( !isset($_SESSION['username']) )
 					<div class="card-body">
 					<form method="post" action="dosen_createproses.php" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label>ID Dosen</label>
-                            <input type="text" name="id_dosen" class="form-control" required>
-                        </div>
-                        <div class="form-group">
                             <label>NIDN</label>
                             <input type="text" name="nidn" class="form-control" required>
                         </div>
